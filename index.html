@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulta el clima actual y el pronóstico de los próximos días.">
+  <title>Clima — Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Clima, inicio"><span class="brand-mark">☀</span> clima</a>
+      <span class="top-note">Tu pronóstico, de un vistazo</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">CLIMA EN TIEMPO REAL</p>
+          <h1>¿Qué tiempo hace <span>hoy?</span></h1>
+          <p class="intro">Busca una ciudad y consulta sus condiciones actuales y el pronóstico de los próximos días.</p>
+        </div>
+        <form id="search-form" class="search-form" role="search">
+          <label class="sr-only" for="city-input">Nombre de la ciudad</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="city-input" name="city" type="search" placeholder="Busca una ciudad..." value="Bogotá" autocomplete="off" required>
+          <button type="submit">Buscar <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">Consultando el clima de Bogotá…</p>
+
+      <section class="weather-grid" aria-label="Información meteorológica">
+        <article class="current-card panel">
+          <div class="current-heading">
+            <div>
+              <p class="eyebrow">AHORA MISMO</p>
+              <h2 id="location-name">Bogotá, Colombia</h2>
+              <p id="current-date" class="muted">—</p>
+            </div>
+            <span id="weather-icon" class="weather-icon" aria-hidden="true">☀️</span>
+          </div>
+          <div class="temperature-line">
+            <span id="temperature" class="temperature">--°</span>
+            <div>
+              <p id="condition" class="condition">Cargando…</p>
+              <p class="muted">Sensación térmica <strong id="feels-like">--°</strong></p>
+            </div>
+          </div>
+          <div class="current-footer">
+            <span>Máx. <strong id="today-max">--°</strong></span>
+            <span>Mín. <strong id="today-min">--°</strong></span>
+            <span>Zona horaria <strong id="timezone">—</strong></span>
+          </div>
+        </article>
+
+        <article class="details-card panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">DETALLES</p><h2>Condiciones actuales</h2></div>
+            <span class="mini-sun" aria-hidden="true">✦</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><span class="metric-symbol">💧</span><div><p>Humedad</p><strong id="humidity">--%</strong></div></div>
+            <div class="metric"><span class="metric-symbol">💨</span><div><p>Viento</p><strong id="wind">-- km/h</strong></div></div>
+            <div class="metric"><span class="metric-symbol">🌡️</span><div><p>Sensación</p><strong id="apparent">--°</strong></div></div>
+            <div class="metric"><span class="metric-symbol">☀️</span><div><p>Índice UV</p><strong id="uv">--</strong></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading forecast-heading">
+          <div><p class="eyebrow">PLANEA TU SEMANA</p><h2>Pronóstico de 7 días</h2></div>
+          <span class="muted small">Máximas y mínimas</span>
+        </div>
+        <div id="forecast" class="forecast-grid">
+          <div class="forecast-placeholder">Cargando pronóstico…</div>
+        </div>
+      </section>
+
+      <footer>
+        <span>Datos meteorológicos de <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span>
+        <span>Proyecto académico · HTML, CSS y JavaScript</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
